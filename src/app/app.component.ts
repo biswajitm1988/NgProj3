@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title:string;
+  description:string;
+  constructor(){
+    this.description="Demonstrates Http service to call post resful web srvice";
+    this.title = 'NgProj3 - Post CRUD';
+  }
 }
