@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { PostGridComponent } from './post-grid/post-grid.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { PostFormComponent } from './post-form/post-form.component';
+import { PostService } from './service/post.service';
 
 const pathMappings : Routes = [
   {path:'', component: PostGridComponent },
@@ -29,7 +30,7 @@ const pathMappings : Routes = [
     HttpModule,
     RouterModule.forRoot(pathMappings)
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
