@@ -17,17 +17,24 @@ export class PostGridComponent implements OnInit {
   constructor(private postService:PostService,private router:Router) { }
 
   ngOnInit() {
-    this.postService.listPost().subscribe(
-      data => {this.posts=data;this.errMsg=null;},
-      error => {this.errMsg="Failed to invoke service";console.log(error)}
-    )
+    this.getAllPost("constructer");
   }
 
   deletePost(post:Post){
     if(confirm("Are you sure you want to remove this Post")){
-      this.postService.deletePost(post.id).subscribe();
-      this.router.navigate(["/"]);
+      this.postService.deletePost(post.id).subscribe(
+        resp => {if(resp.ok){this.getAllPost("delete");}},
+        error => {this.errMsg="Failed to invoke service";console.log(error)}
+      );
     }
+  }
+
+  getAllPost(caller:string){
+    console.log("From "+caller);
+    this.postService.listPost().subscribe(
+      data => {this.posts=data;this.errMsg=null;},
+      error => {this.errMsg="Failed to invoke service";console.log(error)}
+    )
   }
 
 }

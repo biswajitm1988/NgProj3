@@ -28,13 +28,14 @@ export class PostFormComponent implements OnInit {
         this.postService.getPost(id).subscribe(
           data => {this.post=data;this.errMsg=null;},
           error => {this.errMsg="Failed to invoke service";console.log(error)}
+          
         )
       }
     });
   }
   savePost(){
     this.postService.savePost(this.post).subscribe(
-      data => {this.post=data;this.errMsg=null;},
+      data => {this.post=data;this.errMsg=null;console.log(data)},
       error => {this.errMsg="Failed to invoke service";console.log(error)}
     )
   }
