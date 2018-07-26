@@ -11,7 +11,7 @@ export class PostService {
 
   baseUrl:string
   constructor(private http:Http) { 
-    this.baseUrl="https://jsonplaceholder.typicodecom/posts";
+    this.baseUrl="https://jsonplaceholder.typicode.com/posts";
   }
 
   listPost(): Observable<Post[]>{

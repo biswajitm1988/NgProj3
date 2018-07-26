@@ -17,14 +17,10 @@ export class PostGridComponent implements OnInit {
 
   ngOnInit() {
     this.postService.listPost().subscribe(
-      data => {this.posts=data;this.errMsg=null;console.log(data);},
+      data => {this.posts=data;this.errMsg=null;},
       error => {this.errMsg="Failed to invoke service";console.log(error)}
     )
   }
-  getPost(id:number):Observable<Post>{
-    return this.http.get(this.getIdSpecificUrl(id)).pipe(
-      map(response => response.json())
-    )
-  }
+
 
 }
